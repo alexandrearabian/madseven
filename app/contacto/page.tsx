@@ -54,7 +54,7 @@ export default function ContactPage() {
       <section className="flex flex-col gap-4">
         <h1 className="text-4xl font-bold">Contacto</h1>
         <p className="text-lg text-muted-foreground">
-          ¿Tienes alguna pregunta? Estamos aquí para ayudarte.
+          ¿Tenés alguna pregunta? Estamos para ayudarte.
         </p>
       </section>
 
@@ -63,7 +63,7 @@ export default function ContactPage() {
           <CardHeader>
             <CardTitle>Información de Contacto</CardTitle>
             <CardDescription>
-              Puedes contactarnos a través de los siguientes medios:
+              Podes contactarnos a través de los siguientes medios:
             </CardDescription>
           </CardHeader>
           <CardContent className="flex flex-col gap-4">
@@ -78,7 +78,7 @@ export default function ContactPage() {
             <div>
               <h3 className="font-semibold">Dirección</h3>
               <p className="text-muted-foreground">
-                Av. Example 1234, Ciudad Autónoma de Buenos Aires, Argentina
+                Av. Ejemplo 1234, Ciudad Autónoma de Buenos Aires, Argentina
               </p>
             </div>
           </CardContent>
@@ -86,9 +86,9 @@ export default function ContactPage() {
 
         <Card>
           <CardHeader>
-            <CardTitle>Envíanos un mensaje</CardTitle>
+            <CardTitle>Envianos un mensaje</CardTitle>
             <CardDescription>
-              Completa el formulario y nos pondremos en contacto contigo.
+              Completa el formulario y nos pondremos en contacto con vos.
             </CardDescription>
           </CardHeader>
           <CardContent>

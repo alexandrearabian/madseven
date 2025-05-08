@@ -16,14 +16,14 @@ export function Navbar() {
     <NavigationMenu>
       <NavigationMenuList>
         <NavigationMenuItem>
-          <Link href="/" legacyBehavior passHref>
+          <Link href="/" passHref>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
               Inicio
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <Link href="/acerca-de-nosotros" legacyBehavior passHref>
+          <Link href="/acerca-de-nosotros" passHref>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
               Acerca de nosotros
             </NavigationMenuLink>
@@ -119,7 +119,7 @@ export function Navbar() {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <Link href="/contacto" legacyBehavior passHref>
+          <Link href="/contacto" passHref>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
               Contacto
             </NavigationMenuLink>

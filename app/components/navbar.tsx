@@ -5,28 +5,27 @@ import {
   NavigationMenu,
   NavigationMenuContent,
   NavigationMenuItem,
-  NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
+import { ModeToggle } from "@/components/mode-toggle";
 
 export function Navbar() {
   return (
-    <NavigationMenu>
-      <NavigationMenuList>
-        <NavigationMenuItem>
+    <NavigationMenu className="bg-background/60 supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50 w-full border-b backdrop-blur max-w-full ">
+      <NavigationMenuList className="flex justify-center sm:gap-2 md:justify-evenly lg:gap-4">
+        <NavigationMenuItem >
           <Link href="/" passHref>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+
               Inicio
-            </NavigationMenuLink>
+
           </Link>
         </NavigationMenuItem>
         <NavigationMenuItem>
           <Link href="/acerca-de-nosotros" passHref>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+
               Acerca de nosotros
-            </NavigationMenuLink>
+
           </Link>
         </NavigationMenuItem>
         <NavigationMenuItem>
@@ -34,8 +33,8 @@ export function Navbar() {
           <NavigationMenuContent>
             <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
               <li className="row-span-3">
-                <NavigationMenuLink asChild>
-                  <a
+
+                  <Link
                     className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
                     href="/acciones-de-prensa"
                   >
@@ -45,12 +44,12 @@ export function Navbar() {
                     <p className="text-sm leading-tight text-muted-foreground">
                       Descubre nuestras últimas acciones y cobertura mediática.
                     </p>
-                  </a>
-                </NavigationMenuLink>
+                  </Link>
+
               </li>
               <li>
-                <NavigationMenuLink asChild>
-                  <a
+
+                  <Link
                     className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                     href="/acciones-de-prensa/noticias"
                   >
@@ -60,12 +59,12 @@ export function Navbar() {
                     <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
                       Últimas noticias y artículos sobre nuestras acciones.
                     </p>
-                  </a>
-                </NavigationMenuLink>
+                  </Link>
+
               </li>
               <li>
-                <NavigationMenuLink asChild>
-                  <a
+
+                  <Link
                     className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                     href="/acciones-de-prensa/eventos"
                   >
@@ -75,8 +74,8 @@ export function Navbar() {
                     <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
                       Próximos eventos y conferencias de prensa.
                     </p>
-                  </a>
-                </NavigationMenuLink>
+                  </Link>
+
               </li>
             </ul>
           </NavigationMenuContent>
@@ -86,8 +85,8 @@ export function Navbar() {
           <NavigationMenuContent>
             <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
               <li>
-                <NavigationMenuLink asChild>
-                  <a
+
+                  <Link
                     className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                     href="/servicios/consultoria"
                   >
@@ -97,12 +96,12 @@ export function Navbar() {
                     <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
                       Servicios de consultoría estratégica.
                     </p>
-                  </a>
-                </NavigationMenuLink>
+                  </Link>
+
               </li>
               <li>
-                <NavigationMenuLink asChild>
-                  <a
+
+                  <Link
                     className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                     href="/servicios/asesoramiento"
                   >
@@ -112,19 +111,23 @@ export function Navbar() {
                     <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
                       Asesoramiento personalizado para tu negocio.
                     </p>
-                  </a>
-                </NavigationMenuLink>
+                  </Link>
+
               </li>
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
           <Link href="/contacto" passHref>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+
               Contacto
-            </NavigationMenuLink>
+
           </Link>
         </NavigationMenuItem>
+          <NavigationMenuItem>
+
+          <ModeToggle />
+          </NavigationMenuItem>
       </NavigationMenuList>
     </NavigationMenu>
   );

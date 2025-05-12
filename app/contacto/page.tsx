@@ -1,153 +1,115 @@
-"use client";
-
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import * as z from "zod";
+import { Label } from "@/components/ui/label";
 
-const formSchema = z.object({
-  name: z.string().min(2, {
-    message: "El nombre debe tener al menos 2 caracteres.",
-  }),
-  email: z.string().email({
-    message: "Por favor ingresa un email válido.",
-  }),
-  message: z.string().min(10, {
-    message: "El mensaje debe tener al menos 10 caracteres.",
-  }),
-});
-
-export default function ContactPage() {
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      name: "",
-      email: "",
-      message: "",
-    },
-  });
-
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    // TODO: Implement form submission
-    console.log(values);
-  }
-
+export default function Contacto() {
   return (
-    <div className="flex flex-col gap-8">
-      <section className="flex flex-col gap-4">
-        <h1 className="text-4xl font-bold">Contacto</h1>
-        <p className="text-lg text-muted-foreground">
-          ¿Tenés alguna pregunta? Estamos para ayudarte.
+    <div className="flex flex-col gap-24 pt-32">
+      {/* Header Section */}
+      <section className="container mx-auto px-4 text-center">
+        <h1 className="text-5xl font-bold tracking-tighter mb-8">Contacto</h1>
+        <p className="max-w-[800px] mx-auto text-xl text-muted-foreground leading-relaxed">
+          Estamos aquí para ayudarte. Contáctanos para discutir cómo podemos impulsar tu proyecto.
         </p>
       </section>
 
-      <div className="grid gap-8 md:grid-cols-2">
-        <Card>
-          <CardHeader>
-            <CardTitle>Información de Contacto</CardTitle>
-            <CardDescription>
-              Podes contactarnos a través de los siguientes medios:
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="flex flex-col gap-4">
-            <div>
-              <h3 className="font-semibold">Email</h3>
-              <p className="text-muted-foreground">contacto@madseven.com</p>
-            </div>
-            <div>
-              <h3 className="font-semibold">Teléfono</h3>
-              <p className="text-muted-foreground">+54 11 1234-5678</p>
-            </div>
-            <div>
-              <h3 className="font-semibold">Dirección</h3>
-              <p className="text-muted-foreground">
-                Av. Ejemplo 1234, Ciudad Autónoma de Buenos Aires, Argentina
-              </p>
-            </div>
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardHeader>
-            <CardTitle>Envianos un mensaje</CardTitle>
-            <CardDescription>
-              Completa el formulario y nos pondremos en contacto con vos.
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <Form {...form}>
-              <form
-                onSubmit={form.handleSubmit(onSubmit)}
-                className="space-y-4"
-              >
-                <FormField
-                  control={form.control}
-                  name="name"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Nombre</FormLabel>
-                      <FormControl>
-                        <Input placeholder="Tu nombre" {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                <FormField
-                  control={form.control}
-                  name="email"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Email</FormLabel>
-                      <FormControl>
-                        <Input placeholder="tu@email.com" {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                <FormField
-                  control={form.control}
-                  name="message"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Mensaje</FormLabel>
-                      <FormControl>
-                        <Textarea
-                          placeholder="¿En qué podemos ayudarte?"
-                          className="min-h-[100px]"
-                          {...field}
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                <Button type="submit" className="w-full">
-                  Enviar mensaje
+      {/* Contact Form Section */}
+      <section className="container mx-auto px-4">
+        <div className="grid gap-12 md:grid-cols-2">
+          {/* Contact Form */}
+          <Card className="border-none shadow-lg bg-gradient-to-br from-background to-muted/20">
+            <CardHeader>
+              <CardTitle className="text-3xl font-bold">Envíanos un mensaje</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <form className="space-y-6">
+                <div className="space-y-2">
+                  <Label htmlFor="name">Nombre</Label>
+                  <Input id="name" placeholder="Tu nombre" />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="email">Email</Label>
+                  <Input id="email" type="email" placeholder="tu@email.com" />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="subject">Asunto</Label>
+                  <Input id="subject" placeholder="Asunto del mensaje" />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="message">Mensaje</Label>
+                  <Textarea
+                    id="message"
+                    placeholder="Tu mensaje"
+                    className="min-h-[150px]"
+                  />
+                </div>
+                <Button type="submit" size="lg" className="w-full">
+                  Enviar Mensaje
                 </Button>
               </form>
-            </Form>
+            </CardContent>
+          </Card>
+
+          {/* Contact Information */}
+          <div className="space-y-8">
+            <Card className="border-none shadow-lg bg-gradient-to-br from-background to-muted/20">
+              <CardHeader>
+                <CardTitle className="text-2xl font-bold">Información de Contacto</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-6">
+                <div>
+                  <h3 className="font-semibold mb-2">Dirección</h3>
+                  <p className="text-muted-foreground">
+                    Av. Corrientes 1234<br />
+                    Ciudad Autónoma de Buenos Aires<br />
+                    Argentina
+                  </p>
+                </div>
+                <div>
+                  <h3 className="font-semibold mb-2">Email</h3>
+                  <p className="text-muted-foreground">
+                    info@madseven.com
+                  </p>
+                </div>
+                <div>
+                  <h3 className="font-semibold mb-2">Teléfono</h3>
+                  <p className="text-muted-foreground">
+                    +54 11 1234-5678
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="border-none shadow-lg bg-gradient-to-br from-background to-muted/20">
+              <CardHeader>
+                <CardTitle className="text-2xl font-bold">Horario de Atención</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground">
+                  Lunes a Viernes: 9:00 - 18:00<br />
+                  Sábados y Domingos: Cerrado
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Map Section */}
+      <section className="container mx-auto px-4">
+        <Card className="border-none shadow-lg bg-gradient-to-br from-background to-muted/20">
+          <CardContent className="p-0">
+            <div className="aspect-[16/9] w-full bg-muted">
+              {/* Add your map component or iframe here */}
+              <div className="w-full h-full flex items-center justify-center text-muted-foreground">
+                Mapa de ubicación
+              </div>
+            </div>
           </CardContent>
         </Card>
-      </div>
+      </section>
     </div>
   );
 }

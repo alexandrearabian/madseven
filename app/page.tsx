@@ -31,7 +31,7 @@ export default function Home() {
     <div className="flex flex-col gap-24">
       {/* Hero Section */}
       <section className="relative flex flex-col items-center justify-center gap-8 pt-32 pb-20 text-center">
-        <h1 className="text-5xl font-bold tracking-tighter sm:text-6xl md:text-7xl lg:text-8xl">
+        <h1 className="text-7xl font-bold tracking-tighter md:text-8xl ">
           <span className="bg-gradient-to-r from-[#9b9b9b] to-white bg-clip-text text-transparent">
             Mad
           </span>
@@ -39,21 +39,20 @@ export default function Home() {
             Seven
           </span>
         </h1>
-        <p className="max-w-[800px] text-xl  sm:text-2xl leading-relaxed">
+        <p className="max-w-[800px] text-md  md:text-2xl leading-relaxed">
           MadSeven es una consultora que fusiona comunicación estratégica,
           marketing digital y desarrollo tecnológico para impulsar marcas
           valientes. Combinamos creatividad, datos y tecnología para diseñar
           soluciones que conectan con las personas y generan impacto real.
         </p>
         <div className="flex flex-col md:flex-row gap-8 mt-4">
-          <Button asChild size="lg" className="h-12 px-8 text-lg">
+          <Button asChild className="h-12 px-8 ">
             <Link href="/contacto">Contactanos</Link>
           </Button>
           <Button
             asChild
             variant="outline"
-            size="lg"
-            className="h-12 px-8 text-lg hover:bg-accent transition-all"
+            className="h-12 px-8  hover:bg-accent transition-all"
           >
             <Link href="/servicios">Nuestros Servicios</Link>
           </Button>
@@ -107,14 +106,11 @@ export default function Home() {
         <div className="max-w-3xl mx-auto">
           <Accordion type="single" collapsible className="w-full space-y-4">
             {faqs.map((faq, index) => (
-              <AccordionItem
-                key={index}
-                value={`item-${index}`}
-                className="border border-primary/20 rounded-lg px-4 bg-background/40"
-              >
-                <AccordionTrigger className="text-lg font-medium hover:text-primary transition-colors">
+              <AccordionItem key={index} value={`item-${index}`}>
+                <AccordionTrigger className=" font-medium hover:text-primary transition-colors focus:text-primary ">
                   {faq.question}
                 </AccordionTrigger>
+
                 <AccordionContent className="text-muted-foreground">
                   {faq.answer}
                 </AccordionContent>

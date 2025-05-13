@@ -6,8 +6,8 @@ export default function Prensa() {
   return (
     <div className="flex flex-col gap-24 pt-32">
       {/* Header Section */}
-      <section className="container mx-auto px-4 text-center">
-        <h1 className="text-5xl font-bold tracking-tighter mb-8">
+      <section className="relative flex flex-col items-center justify-center gap-8 pt-32 text-center px-2">
+        <h1 className="text-6xl font-bold tracking-tighter md:text-8xl ">
           Acciones de Prensa
         </h1>
         <p className="max-w-[800px] mx-auto text-xl text-muted-foreground leading-relaxed">

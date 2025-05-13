@@ -18,8 +18,8 @@ importers:
         specifier: ^6.7.2
         version: 6.7.2
       '@fortawesome/react-fontawesome':
-        specifier: ^0.2.2
-        version: 0.2.2(@fortawesome/fontawesome-svg-core@6.7.2)(react@19.1.0)
+        specifier: github:fortawesome/react-fontawesome
+        version: https://codeload.github.com/fortawesome/react-fontawesome/tar.gz/432b921d69d382c54ad9495fa9cbdcea539de05f(@fortawesome/fontawesome-svg-core@6.7.2)(react@19.1.0)
       '@hookform/resolvers':
         specifier: ^5.0.1
         version: 5.0.1(react-hook-form@7.56.3(react@19.1.0))
@@ -199,8 +199,9 @@ packages:
     resolution: {integrity: sha512-GsBrnOzU8uj0LECDfD5zomZJIjrPhIlWU82AHwa2s40FKH+kcxQaBvBo3Z4TxyZHIyX8XTDxsyA33/Vx9eFuQA==}
     engines: {node: '>=6'}
 
-  '@fortawesome/react-fontawesome@0.2.2':
-    resolution: {integrity: sha512-EnkrprPNqI6SXJl//m29hpaNzOp1bruISWaOiRtkMi/xSvHJlzc2j2JAYS7egxt/EbjSNV/k6Xy0AQI6vB2+1g==}
+  '@fortawesome/react-fontawesome@https://codeload.github.com/fortawesome/react-fontawesome/tar.gz/432b921d69d382c54ad9495fa9cbdcea539de05f':
+    resolution: {tarball: https://codeload.github.com/fortawesome/react-fontawesome/tar.gz/432b921d69d382c54ad9495fa9cbdcea539de05f}
+    version: 0.2.2
     peerDependencies:
       '@fortawesome/fontawesome-svg-core': ~1 || ~6
       react: '>=16.3'
@@ -2627,7 +2628,7 @@ snapshots:
     dependencies:
       '@fortawesome/fontawesome-common-types': 6.7.2
 
-  '@fortawesome/react-fontawesome@0.2.2(@fortawesome/fontawesome-svg-core@6.7.2)(react@19.1.0)':
+  '@fortawesome/react-fontawesome@https://codeload.github.com/fortawesome/react-fontawesome/tar.gz/432b921d69d382c54ad9495fa9cbdcea539de05f(@fortawesome/fontawesome-svg-core@6.7.2)(react@19.1.0)':
     dependencies:
       '@fortawesome/fontawesome-svg-core': 6.7.2
       prop-types: 15.8.1

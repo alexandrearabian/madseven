@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { Navbar } from "./components/navbar";
+import { Navbar } from "@/components/navbar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faInstagram,
@@ -25,7 +25,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es">
-      <body className={`${inter.className} mt-24 mx-16`}>
+      <body className={`${inter.className} md:mt-24 md:mx-16 mt-16 mx-4`}>
         <Navbar />
         {children}
         <footer className="border-t mt-16">
@@ -37,7 +37,8 @@ export default function RootLayout({
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-muted-foreground hover:text-primary transition-colors"
-                  legacyBehavior>
+                  legacyBehavior
+                >
                   <FontAwesomeIcon icon={faInstagram} className="w-6 h-6" />
                 </Link>
                 <Link
@@ -45,7 +46,8 @@ export default function RootLayout({
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-muted-foreground hover:text-primary transition-colors"
-                  legacyBehavior>
+                  legacyBehavior
+                >
                   <FontAwesomeIcon icon={faXTwitter} className="w-6 h-6" />
                 </Link>
                 <Link
@@ -53,13 +55,15 @@ export default function RootLayout({
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-muted-foreground hover:text-primary transition-colors"
-                  legacyBehavior>
+                  legacyBehavior
+                >
                   <FontAwesomeIcon icon={faLinkedin} className="w-6 h-6" />
                 </Link>
                 <Link
                   href="mailto:info@madseven.com"
                   className="text-muted-foreground hover:text-primary transition-colors"
-                  legacyBehavior>
+                  legacyBehavior
+                >
                   <FontAwesomeIcon icon={faEnvelope} className="w-6 h-6" />
                 </Link>
               </div>

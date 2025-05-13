@@ -1,5 +1,5 @@
-import * as React from "react"
-import { cn } from "@/lib/utils"
+import * as React from "react";
+import { cn } from "@/lib/utils";
 
 const List = React.forwardRef<
   HTMLUListElement,
@@ -10,19 +10,15 @@ const List = React.forwardRef<
     className={cn("my-6 ml-6 list-disc [&>li]:mt-2", className)}
     {...props}
   />
-))
-List.displayName = "List"
+));
+List.displayName = "List";
 
 const ListItem = React.forwardRef<
   HTMLLIElement,
   React.HTMLAttributes<HTMLLIElement>
 >(({ className, ...props }, ref) => (
-  <li
-    ref={ref}
-    className={cn("text-muted-foreground", className)}
-    {...props}
-  />
-))
-ListItem.displayName = "ListItem"
+  <li ref={ref} className={cn("text-muted-foreground", className)} {...props} />
+));
+ListItem.displayName = "ListItem";
 
-export { List, ListItem }
+export { List, ListItem };

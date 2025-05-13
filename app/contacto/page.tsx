@@ -1,111 +1,143 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import Link from "next/link";
 
 export default function Contacto() {
   return (
-    <div className="flex flex-col gap-24 pt-32">
-      {/* Header Section */}
-      <section className="container mx-auto px-4 text-center">
-        <h1 className="text-5xl font-bold tracking-tighter mb-8">Contacto</h1>
-        <p className="max-w-[800px] mx-auto text-xl text-muted-foreground leading-relaxed">
-          Estamos aquí para ayudarte. Contáctanos para discutir cómo podemos impulsar tu proyecto.
+    <div className="flex flex-col gap-24">
+      {/* Hero Section */}
+      <section className="relative flex flex-col items-center justify-center gap-8 pt-32 pb-20 text-center">
+        <h1 className="text-5xl font-bold tracking-tighter sm:text-6xl md:text-7xl lg:text-8xl">
+          Contacta
+          <span className="bg-gradient-to-r from-[#00CED1] to-[#20B2AA] bg-clip-text text-transparent">
+            nos
+          </span>
+        </h1>
+        <p className="max-w-[800px] text-xl sm:text-2xl leading-relaxed">
+          Estamos acá para ayudarte a alcanzar tus objetivos. Contanos sobre tu
+          proyecto y te responderemos a la brevedad.
         </p>
       </section>
 
       {/* Contact Form Section */}
       <section className="container mx-auto px-4">
         <div className="grid gap-12 md:grid-cols-2">
-          {/* Contact Form */}
-          <Card className="border-none shadow-lg bg-gradient-to-br from-background to-muted/20">
+          {/* Contact Information */}
+          <Card className="shadow-lg bg-background/40 border border-primary/40">
             <CardHeader>
-              <CardTitle className="text-3xl font-bold">Envíanos un mensaje</CardTitle>
+              <CardTitle className="text-3xl font-bold">
+                Información de Contacto
+              </CardTitle>
+              <CardDescription className="text-lg">
+                Estamos disponibles para responder tus consultas y coordinar una
+                reunión.
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-6">
+              <div className="space-y-2">
+                <h3 className="text-xl font-semibold">Email</h3>
+
+                <Link
+                  href="mailto:info@madseven.com"
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
+                  info@madseven.com
+                </Link>
+              </div>
+              <div className="space-y-2">
+                <h3 className="text-xl font-semibold">Teléfono</h3>
+                <Link
+                  href={`tel:+34912345678`}
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
+                  +34 912 345 678
+                </Link>
+              </div>
+              <div className="space-y-2">
+                <h3 className="text-xl font-semibold">Ubicación</h3>
+                <p className="text-muted-foreground">Madrid, España</p>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Contact Form */}
+          <Card className="shadow-lg bg-background/40 border border-primary/40">
+            <CardHeader>
+              <CardTitle className="text-3xl font-bold">
+                Envianos un Mensaje
+              </CardTitle>
+              <CardDescription className="text-lg">
+                Completá el formulario y nos pondremos en contacto contigo.
+              </CardDescription>
             </CardHeader>
             <CardContent>
               <form className="space-y-6">
                 <div className="space-y-2">
                   <Label htmlFor="name">Nombre</Label>
-                  <Input id="name" placeholder="Tu nombre" />
+                  <Input
+                    id="name"
+                    placeholder="Tu nombre completo"
+                    className="bg-background/40"
+                  />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="email">Email</Label>
-                  <Input id="email" type="email" placeholder="tu@email.com" />
+                  <Input
+                    id="email"
+                    type="email"
+                    placeholder="tu@email.com"
+                    className="bg-background/40"
+                  />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="subject">Asunto</Label>
-                  <Input id="subject" placeholder="Asunto del mensaje" />
+                  <Label htmlFor="company">Empresa</Label>
+                  <Input
+                    id="company"
+                    placeholder="Nombre de tu empresa"
+                    className="bg-background/40"
+                  />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="message">Mensaje</Label>
                   <Textarea
                     id="message"
-                    placeholder="Tu mensaje"
-                    className="min-h-[150px]"
+                    placeholder="Cuéntanos sobre tu proyecto"
+                    className="min-h-[150px] bg-background/40"
                   />
                 </div>
-                <Button type="submit" size="lg" className="w-full">
+                <Button type="submit" className="w-full h-12 text-lg">
                   Enviar Mensaje
                 </Button>
               </form>
             </CardContent>
           </Card>
-
-          {/* Contact Information */}
-          <div className="space-y-8">
-            <Card className="border-none shadow-lg bg-gradient-to-br from-background to-muted/20">
-              <CardHeader>
-                <CardTitle className="text-2xl font-bold">Información de Contacto</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-6">
-                <div>
-                  <h3 className="font-semibold mb-2">Dirección</h3>
-                  <p className="text-muted-foreground">
-                    Av. Corrientes 1234<br />
-                    Ciudad Autónoma de Buenos Aires<br />
-                    Argentina
-                  </p>
-                </div>
-                <div>
-                  <h3 className="font-semibold mb-2">Email</h3>
-                  <p className="text-muted-foreground">
-                    info@madseven.com
-                  </p>
-                </div>
-                <div>
-                  <h3 className="font-semibold mb-2">Teléfono</h3>
-                  <p className="text-muted-foreground">
-                    +54 11 1234-5678
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="border-none shadow-lg bg-gradient-to-br from-background to-muted/20">
-              <CardHeader>
-                <CardTitle className="text-2xl font-bold">Horario de Atención</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  Lunes a Viernes: 9:00 - 18:00<br />
-                  Sábados y Domingos: Cerrado
-                </p>
-              </CardContent>
-            </Card>
-          </div>
         </div>
       </section>
 
-      {/* Map Section */}
+      {/* Additional Info Section */}
       <section className="container mx-auto px-4">
-        <Card className="border-none shadow-lg bg-gradient-to-br from-background to-muted/20">
-          <CardContent className="p-0">
-            <div className="aspect-[16/9] w-full bg-muted">
-              {/* Add your map component or iframe here */}
-              <div className="w-full h-full flex items-center justify-center text-muted-foreground">
-                Mapa de ubicación
-              </div>
+        <Card className="shadow-lg bg-background/40 border border-primary/40">
+          <CardContent className="py-16">
+            <div className="text-center space-y-6">
+              <h2 className="text-3xl font-bold">
+                ¿Preferís agendar una reunión?
+              </h2>
+              <p className="text-xl text-muted-foreground max-w-[600px] mx-auto">
+                Coordinemos una llamada para discutir tus necesidades y cómo
+                podemos ayudarte a alcanzar tus objetivos.
+              </p>
+              <Button size="lg" className="h-12 px-8 text-lg">
+                Agendar Reunión
+              </Button>
             </div>
           </CardContent>
         </Card>

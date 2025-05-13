@@ -37,7 +37,7 @@ export default function RootLayout({
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-muted-foreground hover:text-primary transition-colors"
-                >
+                  legacyBehavior>
                   <FontAwesomeIcon icon={faInstagram} className="w-6 h-6" />
                 </Link>
                 <Link
@@ -45,7 +45,7 @@ export default function RootLayout({
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-muted-foreground hover:text-primary transition-colors"
-                >
+                  legacyBehavior>
                   <FontAwesomeIcon icon={faXTwitter} className="w-6 h-6" />
                 </Link>
                 <Link
@@ -53,13 +53,13 @@ export default function RootLayout({
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-muted-foreground hover:text-primary transition-colors"
-                >
+                  legacyBehavior>
                   <FontAwesomeIcon icon={faLinkedin} className="w-6 h-6" />
                 </Link>
                 <Link
                   href="mailto:info@madseven.com"
                   className="text-muted-foreground hover:text-primary transition-colors"
-                >
+                  legacyBehavior>
                   <FontAwesomeIcon icon={faEnvelope} className="w-6 h-6" />
                 </Link>
               </div>

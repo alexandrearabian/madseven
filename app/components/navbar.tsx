@@ -58,7 +58,10 @@ export function Navbar() {
 
   const DesktopNav = () => (
     <NavigationMenu className="hidden md:flex md:justify-between top-0 left-0 z-50 w-full shadow-md backdrop-blur max-w-full fixed px-8">
-      <Link href="/" className="hover:scale-105 transition-all duration-300">
+      <Link
+        href="/"
+        className="hover:scale-105 transition-all duration-300"
+        legacyBehavior>
         <Image src="/madseven-white.png" alt="Logo" width={160} height={160} />
       </Link>
       <NavigationMenuList className="flex justify-between w-full h-16 gap-4">
@@ -75,7 +78,7 @@ export function Navbar() {
                           <Link
                             href={subItem.href}
                             className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent/10 hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                          >
+                            legacyBehavior>
                             <div className="text-sm font-medium leading-none">
                               {subItem.label}
                             </div>
@@ -105,7 +108,7 @@ export function Navbar() {
   const MobileNav = () => (
     <>
       <div className="md:hidden fixed top-0 left-0 w-full z-50 flex justify-between items-center bg-background/40 backdrop-blur-sm ">
-        <Link href="/" className="hover:scale-105 transition-all">
+        <Link href="/" className="hover:scale-105 transition-all" legacyBehavior>
           <Image
             src="/madseven-white.png"
             alt="Logo"
@@ -155,7 +158,7 @@ export function Navbar() {
                         href={subItem.href}
                         className="block pl-8 py-2 text-sm text-muted-foreground hover:text-foreground"
                         onClick={() => setIsOpen(false)}
-                      >
+                        legacyBehavior>
                         {subItem.label}
                       </Link>
                     </motion.div>
@@ -166,7 +169,7 @@ export function Navbar() {
                   href={item.href}
                   className="block py-2 text-md"
                   onClick={() => setIsOpen(false)}
-                >
+                  legacyBehavior>
                   {item.label}
                 </Link>
               )}

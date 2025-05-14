@@ -7,7 +7,7 @@ export default function Acerca() {
     <div className="flex flex-col gap-24 pt-32">
       {/* Header Section */}
       <section className="container mx-auto px-4 text-center">
-        <h1 className="text-5xl font-bold tracking-tighter mb-8">
+        <h1 className="text-5xl font-bold tracking-tight mb-8">
           Acerca de Nosotros
         </h1>
         <p className="max-w-[800px] mx-auto text-xl text-muted-foreground leading-relaxed">

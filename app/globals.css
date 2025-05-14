@@ -55,7 +55,7 @@
   --popover-foreground: oklch(0.95 0.02 190);
 
   /* Primary - vibrant turquoise for buttons */
-  --primary: oklch(0.75 0.2 190);
+  --primary: oklch(0.73 0.1467 190);
   --primary-foreground: oklch(0.1 0.02 190);
 
   /* Secondary - muted turquoise background */
@@ -67,7 +67,7 @@
   --muted-foreground: oklch(0.7 0.02 190);
 
   /* Accent - bright turquoise for links */
-  --accent: oklch(0.65 0.15 190);
+  --accent: oklch(0.61 0.1113 191);
   --accent-foreground: oklch(0.95 0.02 190);
 
   /* Destructive - deep red */

@@ -57,6 +57,24 @@ export default function AcercaDeNosotros() {
     },
   ];
 
+  // Define mission and vision cards for CardSection
+  const missionVisionItems: CardItem[] = [
+    {
+      title: "Misión",
+      description:
+        "Impulsar el crecimiento de marcas y organizaciones mediante estrategias de comunicación integradas, soluciones digitales innovadoras y tecnología aplicada, generando conexiones auténticas y resultados medibles.",
+      animationVariant: "fadeInLeft",
+      delay: 0.2,
+    },
+    {
+      title: "Visión",
+      description:
+        "Ser la consultora de referencia para empresas que buscan transformar su comunicación y presencia digital, destacando por nuestra creatividad, enfoque estratégico y compromiso con la excelencia.",
+      animationVariant: "fadeInRight",
+      delay: 0.4,
+    },
+  ];
+
   return (
     <PageTransition>
       <div className="flex flex-col gap-24">
@@ -78,6 +96,15 @@ export default function AcercaDeNosotros() {
           </p>
         </AnimatedSection>
 
+        {/* Mission & Vision Section - Using CardSection component */}
+        <CardSection
+          items={missionVisionItems}
+          columns={2}
+          className="container mx-auto px-4"
+          cardClassName="shadow-lg bg-background/80 border border-primary/40"
+          contentClassName="text-lg text-muted-foreground leading-relaxed"
+        />
+
         {/* Our Story */}
         <AnimatedSection variant="fadeInUp" className="container mx-auto px-4">
           <Card className="shadow-lg bg-background/80 border border-primary/40">
@@ -88,17 +115,11 @@ export default function AcercaDeNosotros() {
             </CardHeader>
             <CardContent className="space-y-6">
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Fundada con la visión de transformar la manera en que las
-                empresas se conectan con su audiencia, Mad Seven nace de la
-                pasión por la innovación y el impacto social. Nuestro equipo
-                combina experiencia en comunicación, marketing y tecnología para
-                crear soluciones que generan valor real.
-              </p>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                A lo largo de los años, hemos evolucionado y crecido, pero
-                nuestra misión sigue siendo la misma: empoderar a las
-                organizaciones para que alcancen su máximo potencial a través de
-                estrategias innovadoras y soluciones tecnológicas de vanguardia.
+                Llevamos 25 años asesorando a nuestros clientes en diferentes
+                medios, con reconocimientos y premios a nivel nacional e
+                internacional. Nuestro equipo combina experiencia en
+                comunicación, marketing y tecnología para crear soluciones que
+                generan valor real.
               </p>
             </CardContent>
           </Card>
@@ -118,7 +139,7 @@ export default function AcercaDeNosotros() {
           className="relative py-35 text-center"
         >
           <p className="text-4xl font-bold italic">
-            Construyendo el futuro digital con propósito y pasión.
+            Construyendo el futuro digital con propósito y pasión
           </p>
         </AnimatedSection>
 

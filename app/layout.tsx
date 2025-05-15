@@ -27,7 +27,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es">
-      <body className={`${inter.className} md:mt-24 md:mx-16 mt-16 mx-4`}>
+      <body
+        className={`${inter.className} md:mt-24 md:mx-16 mt-16 mx-4 overflow-x-hidden`}
+      >
         <Navbar />
         <AnimatePresence mode="wait">{children}</AnimatePresence>
         <footer className="border-t mt-16">

@@ -298,35 +298,6 @@ export default function Contacto() {
             </AnimatedSection>
           </div>
         </section>
-
-        {/* Additional Info Section */}
-        <AnimatedSection
-          variant="fadeInUp"
-          delay={0.4}
-          className="container mx-auto px-4"
-        >
-          <Card className="shadow-lg bg-background/80 border border-primary/40">
-            <CardContent className="py-16">
-              <div className="text-center space-y-6">
-                <h2 className="text-3xl font-bold">
-                  ¿Preferís agendar una reunión?
-                </h2>
-                <p className="text-xl text-muted-foreground max-w-[600px] mx-auto">
-                  Coordinemos una llamada para discutir tus necesidades y cómo
-                  podemos ayudarte a alcanzar tus objetivos.
-                </p>
-                <div>
-                  <Button
-                    size="lg"
-                    className="h-12 px-8 text-lg hover:bg-accent transition-all"
-                  >
-                    Agendar Reunión
-                  </Button>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </AnimatedSection>
       </div>
     </PageTransition>
   );

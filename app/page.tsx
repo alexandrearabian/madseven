@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import Image from "next/image";
 import {
   Accordion,
   AccordionContent,
@@ -10,7 +11,6 @@ import {
 } from "@/components/ui/accordion";
 import { PageTransition } from "@/components/page-transition";
 import { AnimatedSection } from "@/components/animated-section";
-import { CardSection, CardItem } from "@/components/card-section";
 import { motion } from "motion/react";
 
 export default function Home() {
@@ -32,21 +32,24 @@ export default function Home() {
     },
   ];
 
-  // Define mission and vision cards for CardSection
-  const missionVisionItems: CardItem[] = [
+  const services = [
     {
-      title: "Misión",
+      src: "/comunicacion.jpg",
+      title: "Comunicación Estratégica",
       description:
-        "Impulsar el crecimiento de marcas y organizaciones mediante estrategias de comunicación integradas, soluciones digitales innovadoras y tecnología aplicada, generando conexiones auténticas y resultados medibles.",
-      animationVariant: "fadeInLeft",
-      delay: 0.2,
+        "Estrategias de comunicación efectivas para conectar con tu audiencia.",
     },
     {
-      title: "Visión",
+      src: "/marketing.jpg",
+      title: "Marketing Digital",
       description:
-        "Ser la consultora de referencia para empresas que buscan transformar su comunicación y presencia digital, destacando por nuestra creatividad, enfoque estratégico y compromiso con la excelencia.",
-      animationVariant: "fadeInRight",
-      delay: 0.4,
+        "Campañas creativas para aumentar tu presencia online y convertir visitas en clientes.",
+    },
+    {
+      src: "/software.jpg",
+      title: "Desarrollo de Software",
+      description:
+        "Soluciones tecnológicas a medida para transformar y escalar tu negocio.",
     },
   ];
 
@@ -79,8 +82,7 @@ export default function Home() {
           >
             MadSeven es una consultora que fusiona comunicación estratégica,
             marketing digital y desarrollo tecnológico para impulsar marcas
-            valientes. Combinamos creatividad, datos y tecnología para diseñar
-            soluciones que conectan con las personas y generan impacto real.
+            valientes.
           </motion.p>
           <motion.div
             className="flex flex-col md:flex-row gap-8 mt-4"
@@ -101,23 +103,62 @@ export default function Home() {
           </motion.div>
         </AnimatedSection>
 
-        {/* Mission & Vision Section - Using CardSection component */}
-        <CardSection
-          items={missionVisionItems}
-          columns={2}
-          className="container mx-auto px-4"
-          cardClassName="shadow-lg bg-background/80 border border-primary/40"
-          contentClassName="text-lg text-muted-foreground leading-relaxed"
-        />
-
-        {/* Slogan Section */}
-        <AnimatedSection
-          variant="scaleUp"
-          className="relative py-35 text-center"
-        >
-          <p className="text-5xl font-bold italic">
-            Potenciamos marcas con ideas que conectan y tecnología que escala.
-          </p>
+        {/* Services Section with Images */}
+        <AnimatedSection variant="fadeInUp" className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+            {services.map((service, index) => (
+              <motion.div
+                key={index}
+                className="flex flex-col items-center gap-4"
+                initial={{ opacity: 0, scale: 0.8, y: 30 }}
+                whileInView={{
+                  opacity: 1,
+                  scale: 1,
+                  y: 0,
+                  transition: {
+                    duration: 0.8,
+                    delay: index * 0.3,
+                    ease: [0.1, 0.8, 0.2, 1], // Custom cubic bezier for a smooth, slightly bouncy entrance
+                  },
+                }}
+                animate={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+              >
+                <Link href="/servicios" className="w-full">
+                  <div className="overflow-hidden rounded-xl shadow-lg relative group cursor-pointer">
+                    <motion.div
+                      whileHover={{ scale: 1.1 }}
+                      transition={{ duration: 0.5 }}
+                      className="relative"
+                    >
+                      <Image
+                        src={service.src}
+                        alt={service.title}
+                        width={500}
+                        height={300}
+                        className="object-cover w-full h-[250px] transition-all duration-300 group-hover:blur-sm"
+                      />
+                      <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-6">
+                        <p className="text-white text-center">
+                          {service.description}
+                        </p>
+                      </div>
+                    </motion.div>
+                  </div>
+                </Link>
+                <h3 className="text-2xl font-medium mt-2">{service.title}</h3>
+              </motion.div>
+            ))}
+          </div>
+          {/* Slogan Section */}
+          <AnimatedSection
+            variant="scaleUp"
+            className="relative py-35 text-center mt-16"
+          >
+            <p className="text-5xl font-bold italic">
+              Potenciamos marcas con ideas que conectan y tecnología que escala
+            </p>
+          </AnimatedSection>
         </AnimatedSection>
 
         {/* FAQ Section */}
@@ -135,10 +176,10 @@ export default function Home() {
                   transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
                 >
                   <AccordionItem value={`item-${index}`}>
-                    <AccordionTrigger className="font-medium hover:text-primary transition-colors focus:text-primary">
+                    <AccordionTrigger className="text-xl hover:text-primary transition-colors focus:text-primary">
                       {faq.question}
                     </AccordionTrigger>
-                    <AccordionContent className="text-muted-foreground">
+                    <AccordionContent className="text-muted-foreground text-lg">
                       {faq.answer}
                     </AccordionContent>
                   </AccordionItem>

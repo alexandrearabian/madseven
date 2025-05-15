@@ -1,6 +1,6 @@
 "use client";
 
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { PageTransition } from "@/components/page-transition";
@@ -16,6 +16,10 @@ export default function Servicios() {
       Ofrecemos estrategias de comunicación corporativa, relaciones públicas y gestión de medios, comunicación interna, gestión de crisis, y desarrollo de contenido estratégico.`,
       animationVariant: "fadeInUp",
       delay: 0.1,
+      imageSrc: "/comunicacion.jpg",
+      imageAlt: "Comunicación Estratégica",
+      href: "/contacto",
+      buttonText: "Contáctanos",
     },
     {
       title: "Marketing Digital",
@@ -23,6 +27,10 @@ export default function Servicios() {
       Ofrecemos estrategias de marketing digital, gestión de redes sociales, marketing de contenidos, email marketing, y análisis y optimización de campañas.`,
       animationVariant: "fadeInUp",
       delay: 0.2,
+      imageSrc: "/marketing.jpg",
+      imageAlt: "Marketing Digital",
+      href: "/contacto",
+      buttonText: "Contáctanos",
     },
     {
       title: "Desarrollo Tecnológico",
@@ -30,6 +38,10 @@ export default function Servicios() {
       Ofrecemos desarrollo web y aplicaciones, e-commerce y marketplaces, automatización de procesos, integración de sistemas, y consultoría tecnológica.`,
       animationVariant: "fadeInUp",
       delay: 0.3,
+      imageSrc: "/software.jpg",
+      imageAlt: "Desarrollo Tecnológico",
+      href: "/contacto",
+      buttonText: "Contáctanos",
     },
   ];
 
@@ -58,9 +70,11 @@ export default function Servicios() {
         {/* Main Services - Using CardSection component */}
         <CardSection
           items={serviceItems}
-          columns={1}
-          cardClassName="shadow-lg bg-background/80 border border-primary/40 h-full flex flex-col"
+          columns={3}
+          className="container mx-auto px-4 max-w-7xl"
+          cardClassName="shadow-lg bg-background/80 border border-primary/40 h-full flex flex-col overflow-hidden max-w-sm mx-auto"
           contentClassName="space-y-6 flex-grow"
+          gridClassName="grid gap-12"
         />
 
         {/* CTA Section */}
@@ -77,10 +91,12 @@ export default function Servicios() {
                 Contáctanos para descubrir cómo podemos ayudarte a alcanzar tus
                 objetivos.
               </p>
+            </CardContent>
+            <CardFooter>
               <Button asChild size="lg" className="h-12 px-8 text-lg">
                 <Link href="/contacto">Contactanos</Link>
               </Button>
-            </CardContent>
+            </CardFooter>
           </Card>
         </AnimatedSection>
       </div>

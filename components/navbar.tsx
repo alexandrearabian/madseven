@@ -14,9 +14,12 @@ import {
 import { Menu } from "lucide-react";
 import Image from "next/image";
 import { AnimatePresence, motion } from "motion/react";
+import { ModeToggle } from "./mode-toggle";
+import { useTheme } from "next-themes";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const { theme } = useTheme();
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
@@ -41,7 +44,7 @@ export function Navbar() {
         <NavigationMenuItem>
           <Link href="/">
             <Image
-              src="/madseven-white.png"
+              src={theme === "dark" ? "/madseven-white.png" : "/madseven.png"}
               alt="Logo"
               width={180}
               height={180}
@@ -52,6 +55,9 @@ export function Navbar() {
       </NavigationMenuList>
 
       <NavigationMenuList className="flex justify-between h-16 gap-4">
+        <NavigationMenuItem>
+          <ModeToggle />
+        </NavigationMenuItem>
         {navItems.map((item, index) => (
           <NavigationMenuItem key={index}>
             {/* {item.items ? (
@@ -98,7 +104,7 @@ export function Navbar() {
       <div className="flex justify-between items-center bg-background/80 backdrop-blur-sm">
         <Link href="/" className="hover:scale-105 transition-all">
           <Image
-            src="/madseven-white.png"
+            src={theme === "dark" ? "/madseven-white.png" : "/madseven.png"}
             alt="Logo"
             width={160}
             height={160}
@@ -179,6 +185,9 @@ export function Navbar() {
                     {/* )} */}
                   </motion.div>
                 ))}
+                <div className="mt-8">
+                  <ModeToggle />
+                </div>
               </nav>
             </motion.div>
           </>

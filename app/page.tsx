@@ -67,10 +67,10 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <span className="bg-gradient-to-r from-[#9b9b9b] to-white bg-clip-text text-transparent">
+            <span className="dark:bg-gradient-to-r dark:from-[#373737] dark:to-white dark:bg-clip-text dark:text-transparent bg-gradient-to-r from-[#686868] to-[#1e1e1e] bg-clip-text text-transparent">
               Mad
             </span>
-            <span className="bg-gradient-to-r from-[#08e9ed] to-[#03625e] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r dark:from-[#08e9ed] dark:to-[#03625e] from-[#10d6cf] to-[#4bcac6] bg-clip-text text-transparent">
               Seven
             </span>
           </motion.h1>
@@ -96,7 +96,7 @@ export default function Home() {
             <Button
               asChild
               variant="outline"
-              className="h-12 px-8 bg-background/80 hover:bg-accent hover:border-primary transition-all"
+              className="h-12 px-8 bg-background/80 hover:bg-accent hover:text-accent-foreground hover:border-accent transition-all"
             >
               <Link href="/servicios">Nuestros Servicios</Link>
             </Button>
@@ -138,7 +138,7 @@ export default function Home() {
                         height={300}
                         className="object-cover w-full h-[250px] transition-all duration-300 group-hover:blur-sm"
                       />
-                      <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-6">
+                      <div className="absolute inset-0 bg-black/50 dark:bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-6">
                         <p className="text-white text-center">
                           {service.description}
                         </p>
@@ -155,7 +155,7 @@ export default function Home() {
             variant="scaleUp"
             className="relative py-35 text-center mt-16"
           >
-            <p className="text-5xl font-bold italic">
+            <p className="text-5xl font-bold italic text-foreground">
               Potenciamos marcas con ideas que conectan y tecnología que escala
             </p>
           </AnimatedSection>
@@ -163,7 +163,7 @@ export default function Home() {
 
         {/* FAQ Section */}
         <AnimatedSection variant="fadeInUp" className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-16">
+          <h2 className="text-4xl font-bold text-center mb-16 text-foreground">
             Preguntas Frecuentes
           </h2>
           <div className="max-w-3xl mx-auto">
@@ -175,7 +175,10 @@ export default function Home() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
                 >
-                  <AccordionItem value={`item-${index}`}>
+                  <AccordionItem
+                    value={`item-${index}`}
+                    className="border-border"
+                  >
                     <AccordionTrigger className="text-xl hover:text-primary transition-colors focus:text-primary">
                       {faq.question}
                     </AccordionTrigger>

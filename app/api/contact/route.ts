@@ -1,11 +1,37 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
+import { checkRateLimit } from "@/lib/rate-limiter";
 
 // Initialize Resend with API key
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: Request) {
   try {
+    // Get IP address for rate limiting
+    const ip =
+      request.headers.get("x-forwarded-for") ||
+      request.headers.get("x-real-ip") ||
+      "unknown-ip";
+
+    // Apply rate limit
+    const rateLimitResult = checkRateLimit(ip);
+
+    // Check if rate limit exceeded
+    if (!rateLimitResult.success) {
+      return NextResponse.json(
+        {
+          error:
+            "Demasiados mensajes enviados. Por favor, intenta nuevamente más tarde.",
+        },
+        {
+          status: 429,
+          headers: {
+            "Retry-After": `${Math.ceil((rateLimitResult.timeToReset || 60000) / 1000)}`,
+          },
+        },
+      );
+    }
+
     // Parse the request body
     const { name, email, company, message } = await request.json();
 

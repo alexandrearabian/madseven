@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -30,6 +30,13 @@ interface FormStatus {
   error: string | null;
 }
 
+interface RateLimitInfo {
+  limit: number;
+  remaining: number;
+  reset: number;
+  requestsInWindow: number;
+}
+
 export default function Contacto() {
   const [formData, setFormData] = useState<FormData>({
     name: "",
@@ -43,6 +50,30 @@ export default function Contacto() {
     success: false,
     error: null,
   });
+
+  const [rateLimitInfo, setRateLimitInfo] = useState<RateLimitInfo | null>(
+    null,
+  );
+  const [rateLimitFetched, setRateLimitFetched] = useState<boolean>(false);
+
+  // Check rate limit status on page load
+  useEffect(() => {
+    const checkRateLimit = async () => {
+      try {
+        const response = await fetch("/api/contact/check-limit");
+        if (response.ok) {
+          const data = await response.json();
+          setRateLimitInfo(data.rateLimit);
+        }
+      } catch (error) {
+        console.error("Error fetching rate limit info:", error);
+      } finally {
+        setRateLimitFetched(true);
+      }
+    };
+
+    checkRateLimit();
+  }, []);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -81,6 +112,20 @@ export default function Contacto() {
         throw new Error(data.error || "Error al enviar el mensaje");
       }
 
+      // Update rate limit info after successful submission
+      try {
+        const rateLimitResponse = await fetch("/api/contact/check-limit");
+        if (rateLimitResponse.ok) {
+          const rateLimitData = await rateLimitResponse.json();
+          setRateLimitInfo(rateLimitData.rateLimit);
+        }
+      } catch (error) {
+        console.error(
+          "Error fetching rate limit info after submission:",
+          error,
+        );
+      }
+
       // Reset form and show success message
       setFormData({ name: "", email: "", company: "", message: "" });
       setFormStatus({
@@ -95,6 +140,17 @@ export default function Contacto() {
         error:
           error instanceof Error ? error.message : "Error al enviar el mensaje",
       });
+
+      // Try to update rate limit info even on error
+      try {
+        const rateLimitResponse = await fetch("/api/contact/check-limit");
+        if (rateLimitResponse.ok) {
+          const rateLimitData = await rateLimitResponse.json();
+          setRateLimitInfo(rateLimitData.rateLimit);
+        }
+      } catch (error) {
+        console.error("Error fetching rate limit info after error:", error);
+      }
     }
   };
 
@@ -280,15 +336,32 @@ export default function Contacto() {
                           required
                         />
                       </div>
+                      {rateLimitFetched &&
+                        rateLimitInfo &&
+                        rateLimitInfo.remaining < rateLimitInfo.limit && (
+                          <div className="text-sm text-amber-500">
+                            Tienes {rateLimitInfo.remaining}{" "}
+                            {rateLimitInfo.remaining === 1
+                              ? "mensaje"
+                              : "mensajes"}{" "}
+                            disponible{rateLimitInfo.remaining !== 1 ? "s" : ""}{" "}
+                            para enviar.
+                          </div>
+                        )}
                       <div>
                         <Button
                           type="submit"
                           className="w-full h-12 text-lg hover:bg-accent transition-all cursor-pointer"
-                          disabled={formStatus.loading}
+                          disabled={
+                            formStatus.loading ||
+                            (!!rateLimitInfo && rateLimitInfo.remaining <= 0)
+                          }
                         >
                           {formStatus.loading
                             ? "Enviando..."
-                            : "Enviar Mensaje"}
+                            : !!rateLimitInfo && rateLimitInfo.remaining <= 0
+                              ? "Límite alcanzado"
+                              : "Enviar Mensaje"}
                         </Button>
                       </div>
                     </form>

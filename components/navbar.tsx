@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   NavigationMenu,
   // NavigationMenuContent,
@@ -19,7 +19,13 @@ import { useTheme } from "next-themes";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const { theme } = useTheme();
+  const { theme, resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  // After hydration, we have access to the theme
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
@@ -38,17 +44,25 @@ export function Navbar() {
     { href: "/contacto", label: "Contacto" },
   ];
 
+  // Only show the appropriate logo after the component has mounted
+  // This prevents incorrect logo flashing during hydration
+  const logoSrc =
+    mounted && (resolvedTheme === "dark" || theme === "dark")
+      ? "/madseven-white.png"
+      : "/madseven.png";
+
   const DesktopNav = () => (
     <NavigationMenu className="hidden md:flex md:justify-between top-0 left-0 z-50 w-full shadow-md backdrop-blur max-w-full fixed px-8">
       <NavigationMenuList>
         <NavigationMenuItem>
           <Link href="/">
             <Image
-              src={theme === "dark" ? "/madseven-white.png" : "/madseven.png"}
+              src={logoSrc}
               alt="Logo"
               width={180}
               height={180}
               className="hover:scale-105 transition-all"
+              priority
             />
           </Link>
         </NavigationMenuItem>
@@ -103,12 +117,7 @@ export function Navbar() {
       {/* Fixed header that doesn't animate */}
       <div className="flex justify-between items-center bg-background/80 backdrop-blur-sm">
         <Link href="/" className="hover:scale-105 transition-all">
-          <Image
-            src={theme === "dark" ? "/madseven-white.png" : "/madseven.png"}
-            alt="Logo"
-            width={160}
-            height={160}
-          />
+          <Image src={logoSrc} alt="Logo" width={160} height={160} priority />
         </Link>
         <button
           className="p-4"
@@ -195,6 +204,11 @@ export function Navbar() {
       </AnimatePresence>
     </div>
   );
+
+  // If you're pre-rendering, don't show the navbar until mounting is complete
+  if (!mounted) {
+    return null;
+  }
 
   return (
     <>

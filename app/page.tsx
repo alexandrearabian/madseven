@@ -96,9 +96,16 @@ export default function Home() {
             <Button
               asChild
               variant="outline"
-              className="h-12 px-8 bg-background/80 hover:bg-accent hover:text-accent-foreground hover:border-accent transition-all"
+              className="h-12 px-8 bg-background/80 hover:bg-accent/10 border dark:hover:border-primary hover:text-accent-foreground hover:border-primary transition-all"
             >
               <Link href="/servicios">Nuestros Servicios</Link>
+            </Button>
+            <Button
+              asChild
+              variant="outline"
+              className="h-12 px-8 bg-background/80 hover:bg-accent/10 border dark:hover:border-primary hover:text-accent-foreground hover:border-primary transition-all"
+            >
+              <Link href="https://madseven.es">🌎 MadSeven Travel</Link>
             </Button>
           </motion.div>
         </AnimatedSection>

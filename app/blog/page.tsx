@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { PageTransition } from "@/components/page-transition";
 import { AnimatedSection } from "@/components/animated-section";
 import { CardItem } from "@/components/card-section";
+import { GradientText } from "@/components/gradient-text";
 
 export default function Blog() {
   const categories: CardItem[] = [
@@ -67,11 +68,8 @@ export default function Blog() {
           className="relative flex flex-col items-center justify-center gap-8 pt-32 text-center px-2"
         >
           <h1 className="text-6xl font-bold tracking-tight md:text-8xl ">
-            Thinking
-            <span className="bg-gradient-to-r from-[#00CED1] to-[#20B2AA] bg-clip-text text-transparent">
-              {" "}
-              Lab
-            </span>
+            <GradientText variant="primary">Thinking</GradientText>
+            <GradientText variant="secondary"> Lab</GradientText>
           </h1>
           <p className="max-w-[800px] text-xl sm:text-2xl leading-relaxed">
             Explora nuestro espacio de ideas donde compartimos artículos sobre

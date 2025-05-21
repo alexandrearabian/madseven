@@ -12,6 +12,7 @@ import {
 import { PageTransition } from "@/components/page-transition";
 import { AnimatedSection } from "@/components/animated-section";
 import { motion } from "motion/react";
+import { GradientText } from "@/components/gradient-text";
 
 export default function Home() {
   const faqs = [
@@ -67,12 +68,8 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <span className="dark:bg-gradient-to-r dark:from-[#373737] dark:to-white dark:bg-clip-text dark:text-transparent bg-gradient-to-r from-[#686868] to-[#1e1e1e] bg-clip-text text-transparent">
-              Mad
-            </span>
-            <span className="bg-gradient-to-r dark:from-[#08e9ed] dark:to-[#03625e] from-[#10d6cf] to-[#4bcac6] bg-clip-text text-transparent">
-              Seven
-            </span>
+            <GradientText variant="primary">MAD</GradientText>
+            <GradientText variant="secondary">Seven</GradientText>
           </motion.h1>
           <motion.p
             className="max-w-[800px] text-md md:text-2xl leading-relaxed"
@@ -80,7 +77,7 @@ export default function Home() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            MadSeven es una consultora que fusiona comunicación estratégica,
+            Madseven es una consultora que fusiona comunicación estratégica,
             marketing digital y desarrollo tecnológico para impulsar marcas
             valientes.
           </motion.p>

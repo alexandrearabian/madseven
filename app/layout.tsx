@@ -5,12 +5,12 @@ import { Navbar } from "@/components/navbar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { AnimatePresence } from "motion/react";
 
-import {
-  faInstagram,
-  faXTwitter,
-  faLinkedin,
-} from "@fortawesome/free-brands-svg-icons";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+// import {
+//   faInstagram,
+//   faXTwitter,
+//   faLinkedin,
+// } from "@fortawesome/free-brands-svg-icons";
+import { faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 import { ThemeProvider } from "@/components/theme-provider";
 
@@ -42,7 +42,7 @@ export default function RootLayout({
           <footer className="border-t mt-16">
             <div className="flex flex-col items-center gap-6 mt-8 py-8">
               <div className="flex gap-8">
-                <Link
+                {/* <Link
                   href="https://instagram.com/madseven"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -65,6 +65,12 @@ export default function RootLayout({
                   className="text-muted-foreground hover:text-primary transition-colors"
                 >
                   <FontAwesomeIcon icon={faLinkedin} className="w-6 h-6" />
+                </Link> */}
+                <Link
+                  href="tel:+34600000000"
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
+                  <FontAwesomeIcon icon={faPhone} className="w-6 h-6" />
                 </Link>
                 <Link
                   href="mailto:info@madseven.com"

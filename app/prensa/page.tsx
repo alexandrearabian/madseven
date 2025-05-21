@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { GradientText } from "@/components/gradient-text";
 
 export default function Prensa() {
   return (
@@ -8,7 +9,7 @@ export default function Prensa() {
       {/* Header Section */}
       <section className="relative flex flex-col items-center justify-center gap-8 pt-32 text-center px-2">
         <h1 className="text-6xl font-bold tracking-tight md:text-8xl ">
-          Acciones de Prensa
+          <GradientText variant="primary">Acciones de Prensa</GradientText>
         </h1>
         <p className="max-w-[800px] mx-auto text-xl text-muted-foreground leading-relaxed">
           Descubre nuestras últimas apariciones en medios y comunicados de

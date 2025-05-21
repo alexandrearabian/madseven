@@ -16,6 +16,7 @@ import Link from "next/link";
 import { PageTransition } from "@/components/page-transition";
 import { AnimatedSection } from "@/components/animated-section";
 import { motion } from "motion/react";
+import { GradientText } from "@/components/gradient-text";
 
 interface FormData {
   name: string;
@@ -168,10 +169,8 @@ export default function Contacto() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Contacta
-            <span className="bg-gradient-to-r from-[#00CED1] to-[#20B2AA] bg-clip-text text-transparent">
-              nos
-            </span>
+            <GradientText variant="primary">Contacta</GradientText>
+            <GradientText variant="secondary">nos</GradientText>
           </motion.h1>
           <motion.p
             className="max-w-[800px] text-md md:text-2xl leading-relaxed"
@@ -225,7 +224,7 @@ export default function Contacto() {
                       href={`tel:+34912345678`}
                       className="text-muted-foreground hover:text-primary transition-colors"
                     >
-                      +34 912 345 678
+                      +34 722 68 35 98
                     </Link>
                   </motion.div>
                   <motion.div
@@ -235,7 +234,9 @@ export default function Contacto() {
                     transition={{ duration: 0.5, delay: 0.6 }}
                   >
                     <h3 className="text-xl font-semibold">Ubicación</h3>
-                    <p className="text-muted-foreground">Madrid, España</p>
+                    <p className="text-muted-foreground">
+                      Av. De los Madroños 13, 5H - 28043 Madrid, España
+                    </p>
                   </motion.div>
                 </CardContent>
               </Card>
@@ -293,7 +294,7 @@ export default function Contacto() {
                         </motion.div>
                       )}
                       <div className="space-y-2">
-                        <Label htmlFor="name">Nombre *</Label>
+                        <Label htmlFor="name">Nombre</Label>
                         <Input
                           id="name"
                           placeholder="Tu nombre completo"
@@ -304,7 +305,7 @@ export default function Contacto() {
                         />
                       </div>
                       <div className="space-y-2">
-                        <Label htmlFor="email">Email *</Label>
+                        <Label htmlFor="email">Email</Label>
                         <Input
                           id="email"
                           type="email"
@@ -326,10 +327,10 @@ export default function Contacto() {
                         />
                       </div>
                       <div className="space-y-2">
-                        <Label htmlFor="message">Mensaje *</Label>
+                        <Label htmlFor="message">Mensaje</Label>
                         <Textarea
                           id="message"
-                          placeholder="Cuéntanos sobre tu proyecto"
+                          placeholder="Contanos sobre tu proyecto"
                           className="min-h-[150px] bg-background/80 hover:border-primary transition-all"
                           value={formData.message}
                           onChange={handleChange}

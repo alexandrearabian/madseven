@@ -6,6 +6,7 @@ import Link from "next/link";
 import { PageTransition } from "@/components/page-transition";
 import { AnimatedSection } from "@/components/animated-section";
 import { CardSection, CardItem } from "@/components/card-section";
+import { GradientText } from "@/components/gradient-text";
 
 export default function AcercaDeNosotros() {
   // Define data arrays for consistent card sections
@@ -84,11 +85,9 @@ export default function AcercaDeNosotros() {
           className="relative flex flex-col items-center justify-center gap-8 pt-32 text-center px-2"
         >
           <h1 className="text-6xl font-bold tracking-tight md:text-8xl ">
-            Acerca de
-            <span className="bg-gradient-to-r from-[#00CED1] to-[#20B2AA] bg-clip-text text-transparent">
-              {" "}
-              Nosotros
-            </span>
+            <GradientText variant="primary"> Acerca </GradientText>
+            de
+            <GradientText variant="secondary"> Nosotros</GradientText>
           </h1>
           <p className="max-w-[800px] text-xl sm:text-2xl leading-relaxed">
             Somos un equipo apasionado por la innovación y el impacto social,

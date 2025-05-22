@@ -127,7 +127,7 @@ export default function Prensa() {
           <CardContent className="py-16">
             <h2 className="text-3xl font-bold mb-6">¿Eres periodista?</h2>
             <p className="text-xl text-muted-foreground mb-8 max-w-[600px] mx-auto">
-              Contáctanos para solicitar entrevistas, información adicional o
+              Contactanos para solicitar entrevistas, información adicional o
               coordinar coberturas especiales.
             </p>
             <Button asChild size="lg" className="h-12 px-8 text-lg">

@@ -152,26 +152,6 @@ export default function Blog() {
             ))}
           </div>
         </div>
-
-        {/* Newsletter Section */}
-        <AnimatedSection variant="scaleUp" className="container mx-auto px-4">
-          <Card className="shadow-lg bg-background/80 border border-primary/40">
-            <CardContent className="py-16">
-              <div className="text-center space-y-6">
-                <h2 className="text-3xl font-bold">
-                  Suscribite a nuestro Newsletter
-                </h2>
-                <p className="text-xl text-muted-foreground max-w-[600px] mx-auto">
-                  Recibe nuestros artículos más recientes y mantente al día con
-                  las últimas tendencias en comunicación y tecnología.
-                </p>
-                <Button size="lg" className="h-12 px-8 text-lg">
-                  Suscribirse
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
-        </AnimatedSection>
       </div>
     </PageTransition>
   );

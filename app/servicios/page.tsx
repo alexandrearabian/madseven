@@ -20,7 +20,7 @@ export default function Servicios() {
       imageSrc: "/comunicacion.jpg",
       imageAlt: "Comunicación Estratégica",
       href: "/contacto",
-      buttonText: "Contáctanos",
+      buttonText: "Contactanos",
     },
     {
       title: "Marketing Digital",
@@ -31,7 +31,7 @@ export default function Servicios() {
       imageSrc: "/marketing.jpg",
       imageAlt: "Marketing Digital",
       href: "/contacto",
-      buttonText: "Contáctanos",
+      buttonText: "Contactanos",
     },
     {
       title: "Desarrollo Tecnológico",
@@ -42,7 +42,7 @@ export default function Servicios() {
       imageSrc: "/software.jpg",
       imageAlt: "Desarrollo Tecnológico",
       href: "/contacto",
-      buttonText: "Contáctanos",
+      buttonText: "Contactanos",
     },
   ];
 
@@ -86,12 +86,16 @@ export default function Servicios() {
                 ¿Listo para impulsar tu marca?
               </h2>
               <p className="text-xl text-muted-foreground mb-8 max-w-[600px] mx-auto">
-                Contáctanos para descubrir cómo podemos ayudarte a alcanzar tus
+                Contactanos para descubrir cómo podemos ayudarte a alcanzar tus
                 objetivos.
               </p>
             </CardContent>
-            <CardFooter>
-              <Button asChild size="lg" className="h-12 px-8 text-lg">
+            <CardFooter className="flex justify-center">
+              <Button
+                asChild
+                size="lg"
+                className="h-12 px-8 text-lg -mt-8 mb-4"
+              >
                 <Link href="/contacto">Contactanos</Link>
               </Button>
             </CardFooter>

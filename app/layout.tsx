@@ -67,7 +67,7 @@ export default function RootLayout({
                   <FontAwesomeIcon icon={faLinkedin} className="w-6 h-6" />
                 </Link> */}
                 <Link
-                  href="tel:+34600000000"
+                  href="tel:+34645165897"
                   className="text-muted-foreground hover:text-primary transition-colors"
                 >
                   <FontAwesomeIcon icon={faPhone} className="w-6 h-6" />
